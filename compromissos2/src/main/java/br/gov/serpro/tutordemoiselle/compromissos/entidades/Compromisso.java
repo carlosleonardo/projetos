@@ -23,7 +23,7 @@ public class Compromisso implements Serializable {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Integer id; 
 
 	@Column
 	private String nomeCompromisso;
