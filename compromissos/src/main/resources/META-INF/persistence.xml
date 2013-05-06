@@ -6,7 +6,7 @@
 	<persistence-unit name="compromissos-ds"
 		transaction-type="RESOURCE_LOCAL">
 		<non-jta-data-source>java:jboss/datasources/ExampleDS</non-jta-data-source>
-		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		
 		<class>br.gov.serpro.tutordemoiselle.compromissos.entidades.Compromisso</class>
 		<properties>
 <!-- 			<property name="eclipselink.logging.level" value="FINE" /> -->
@@ -17,8 +17,8 @@
 <!-- 			<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver" /> -->
 <!-- 			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:mem:." /> -->
 <!-- 			<property name="javax.persistence.jdbc.user" value="sa" /> -->
-			<property name="hibernate.show_sql" value="false" />
-			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
 			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
 
 		</properties>
