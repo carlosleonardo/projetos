@@ -5,10 +5,17 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import br.gov.frameworkdemoiselle.security.RequiredPermission;
 import br.gov.frameworkdemoiselle.stereotype.ViewController;
 import br.gov.serpro.tutordemoiselle.compromissos.entidades.Compromisso;
 import br.gov.serpro.tutordemoiselle.compromissos.negocios.CompromissoBC;
 
+/**
+ * Classe de visão para manter os compromissos.
+ * 
+ * @author 86132113568
+ *
+ */
 @ViewController
 public class CompromissoMB {
 	
@@ -16,10 +23,13 @@ public class CompromissoMB {
 	private CompromissoBC compromissoBC;
 	
 	/**
-	 * Retorna uma lista de compromissos
+	 * Retorna uma lista de compromissos. 
+	 * Incluída permissão requerida para acessar o recurso.
 	 * 
-	 * @return
+	 * @return Lista de compromissos
+	 * 
 	 */
+	@RequiredPermission(resource="compromisso", operation="consultar")
 	public List<Compromisso> getCompromissos()
 	{
 		return compromissoBC.findAll();
@@ -33,6 +43,7 @@ public class CompromissoMB {
 	 * @param dataFinal
 	 * @param repetir
 	 */
+	@RequiredPermission(resource="compromisso", operation="incluir")
 	public void incluirCompromisso(String nome, Date dataInicial, Date dataFinal, boolean repetir)
 	{
 		Compromisso compromisso = new Compromisso(nome, repetir, dataInicial, dataFinal);
@@ -48,6 +59,7 @@ public class CompromissoMB {
 	 * @param dataFinal
 	 * @param repetir
 	 */
+	@RequiredPermission(resource="compromisso", operation="alterar")
 	public void alterarCompromisso(String nome, Date dataInicial, Date dataFinal, boolean repetir)
 	{
 		Compromisso compromisso = new Compromisso(nome, repetir, dataInicial, dataFinal);
@@ -59,6 +71,7 @@ public class CompromissoMB {
 	 * 
 	 * @param idCompromisso
 	 */
+	@RequiredPermission(resource="compromisso", operation="excluir")
 	public void excluirCompromisso(Integer idCompromisso)
 	{
 		compromissoBC.delete(idCompromisso);
