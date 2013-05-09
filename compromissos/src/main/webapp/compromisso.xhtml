@@ -9,28 +9,39 @@
 	<f:view>
 		<h:form>
 			<h:outputLabel value="Lista de Compromissos" />
-			<h:dataTable id="listaCompromissos" var="compromisso" value="#{compromissoMB.compromissos}" border="1">
+			<h:dataTable id="listaCompromissos" var="compromisso" value="#{compromissoMB.compromissos}" border="1" width="100%">
 				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="ID" />
+					</f:facet>
 					<h:outputFormat value="#{compromisso.id}" /> 
 				</h:column>
 				 
 				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Nome" />
+					</f:facet>
 					<h:outputFormat value="#{compromisso.nomeCompromisso}" />
 				</h:column>
 				
 				<h:column>
+					<f:facet name="header">
+						<h:outputLabel value="Data Inicial" />
+					</f:facet>
 					<h:outputFormat value="#{compromisso.dataInicial}">
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:outputFormat>
 				</h:column>
 				
 				<h:column>
+					<f:facet name="header"><h:outputLabel value="Data Final" /></f:facet>
 					<h:outputFormat value="#{compromisso.dataFinal}" >
 						<f:convertDateTime pattern="dd/MM/yyyy"/>
 					</h:outputFormat>
 				</h:column>
 				
 				<h:column>
+					<f:facet name="header"><h:outputLabel value="Repetir" /></f:facet>
 					<h:outputFormat value="#{compromisso.repetir}" />
 				</h:column>
 			</h:dataTable>
