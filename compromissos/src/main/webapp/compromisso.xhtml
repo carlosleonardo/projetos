@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<body> 
+	<f:view>
+		<h:form>
+			<h:outputLabel value="Lista de Compromissos" />
+			<h:dataTable id="listaCompromissos" var="compromisso" value="#{compromissoMB.compromissos}" border="1">
+				<h:column>
+					<h:outputFormat value="#{compromisso.id}" /> 
+				</h:column>
+				 
+				<h:column>
+					<h:outputFormat value="#{compromisso.nomeCompromisso}" />
+				</h:column>
+				
+				<h:column>
+					<h:outputFormat value="#{compromisso.dataInicial}">
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputFormat>
+				</h:column>
+				
+				<h:column>
+					<h:outputFormat value="#{compromisso.dataFinal}" >
+						<f:convertDateTime pattern="dd/MM/yyyy"/>
+					</h:outputFormat>
+				</h:column>
+				
+				<h:column>
+					<h:outputFormat value="#{compromisso.repetir}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</f:view>
+</body> 
+</html>
